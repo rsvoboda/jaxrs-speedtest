@@ -46,4 +46,4 @@ Jersey:
 
 Consider option -k to enable keep-alive on Apache Bench tool side
 
-For results visualization you can use https://github.com/rsvoboda/ab-resuts-graphs
+For results visualization you can use https://github.com/rsvoboda/ab-results-graphs
