@@ -29,18 +29,21 @@ Deploying
 
 Testing with Apache Bench tool
 -------------------
+CXF:
 > ab -n 100000 -c 5 "http://10.20.30.40:8080/jaxrs-cxf/s/r/hello/advanced/?firstName=AA&lastName=BB"
 
 > ab -n 4500000 -c 150 -g cxf.data "http://10.20.30.40:8080/jaxrs-cxf/s/r/hello/advanced/?firstName=AA&lastName=BB" | tee cxf.log
 
+RESTEasy:
 > ab -n 100000 -c 5 "http://10.20.30.40:8080/jaxrs-resteasy/hello/advanced/?firstName=AA&lastName=BB"
 
 > ab -n 4500000 -c 150 -g resteasy.data "http://10.20.30.40:8080/jaxrs-resteasy/hello/advanced/?firstName=AA&lastName=BB" | tee resteasy.log
 
+Jersey:
 > ab -n 100000 -c 5 "http://10.20.30.40:8080/jaxrs-jersey/hello/advanced/?firstName=AA&lastName=BB"
 
 > ab -n 4500000 -c 150 -g jersey.data "http://10.20.30.40:8080/jaxrs-jersey/hello/advanced/?firstName=AA&lastName=BB" | tee jersey.log
 
-You maybe want to consider option -k to enable keep-alive on Apache Bench tool side
+Consider option -k to enable keep-alive on Apache Bench tool side
 
 For results visualization you can use https://github.com/rsvoboda/ab-resuts-graphs
