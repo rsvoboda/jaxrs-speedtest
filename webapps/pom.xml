@@ -12,6 +12,7 @@
         <module>jaxrs-cxf</module>
         <module>jaxrs-resteasy</module>
         <module>jaxrs-jersey</module>
+        <module>jaxrs-eap</module>
     </modules>
 
     <properties>
