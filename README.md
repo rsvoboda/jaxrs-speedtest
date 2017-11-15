@@ -27,6 +27,27 @@ Deploying
 
 > jetty-distribution-9.3.7.v20160115/bin/jetty.sh start
 
+Testing with Siege tool
+-----------------------
+
+Edit ~/.siege/siege.conf and set verbose to false and connection to keep-alive.
+
+CXF:
+> siege "http://127.0.0.1:8080/jaxrs-cxf/s/r/hello/advanced/?firstName=AA&lastName=BB" -d0.0001 -r20000 -c10
+
+> siege "http://127.0.0.1:8080/jaxrs-cxf/s/r/hello/advanced/?firstName=AA&lastName=BB" -d0.0001 -r200000 -c50
+
+RESTEasy:
+> siege "http://127.0.0.1:8080/jaxrs-resteasy/hello/advanced/?firstName=AA&lastName=BB" -d0.0001 -r20000 -c10
+
+> siege "http://127.0.0.1:8080/jaxrs-resteasy/hello/advanced/?firstName=AA&lastName=BB" -d0.0001 -r200000 -c50
+
+Jersey:
+> siege "http://127.0.0.1:8080/jaxrs-jersey/hello/advanced/?firstName=AA&lastName=BB" -d0.0001 -r20000 -c10
+
+> siege "http://127.0.0.1:8080/jaxrs-jersey/hello/advanced/?firstName=AA&lastName=BB" -d0.0001 -r200000 -c50
+
+
 Testing with Apache Bench tool
 -------------------
 CXF:
@@ -44,6 +65,6 @@ Jersey:
 
 > ab -n 4500000 -c 150 -g jersey.data "http://10.20.30.40:8080/jaxrs-jersey/hello/advanced/?firstName=AA&lastName=BB" | tee jersey.log
 
-Consider option -k to enable keep-alive on Apache Bench tool side
+Consider option -k to enable keep-alive on Apache Bench tool side (but note that currently Apache CXF doesn't properly work with Keep-Alive on HTTP 1.0, which is what ab use)
 
 For results visualization you can use https://github.com/rsvoboda/ab-results-graphs
